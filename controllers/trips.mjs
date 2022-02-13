@@ -2,9 +2,9 @@
 // that we can make db queries inside
 export default function initTripsController(db) {
   const index = (request, response) => {
-    db.Trip.findAll()
+    db.Trip.findAll({ attributes: ["id", "name"] })
       .then((trips) => {
-        response.send({trips});
+        response.send({ trips });
       })
       .catch((error) => console.log(error));
   };
